@@ -1,0 +1,26 @@
+{
+  "name": "web-app",
+  "version": "0.1",
+  "homepage": "https://github.com/chaoc-tools/web-app",
+  "authors": [
+    "Anders Ramsay <andersr@gmail.com>"
+  ],
+  "description": "toolkit for chaoc co-op",
+  "main": "https://chaoc-tools.herokuapp.com",
+  "keywords": [
+    "community"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "latest"
+ }
+}

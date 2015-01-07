@@ -26,8 +26,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 ##ADDED GEMS
+gem 'bower-rails'
 gem 'annotate', '~> 2.6.5', group: :development
-gem 'foundation-rails'
+# gem 'foundation-rails'
+# gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
 gem "figaro"
 gem 'rails_12factor', group: :production
 gem "omniauth-google-oauth2", "~> 0.2.1"
