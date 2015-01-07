@@ -11,6 +11,10 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  email            :string(255)
+#  chaoc_first      :string(255)
+#  chaoc_mi         :string(255)
+#  chaoc_last       :string(255)
+#  property_owner   :boolean
 #
 
 class User < ActiveRecord::Base

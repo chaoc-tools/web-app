@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150107200919) do
+ActiveRecord::Schema.define(version: 20150107223710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(version: 20150107200919) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
+    t.string   "chaoc_first"
+    t.string   "chaoc_mi"
+    t.string   "chaoc_last"
+    t.boolean  "property_owner"
   end
 
 end

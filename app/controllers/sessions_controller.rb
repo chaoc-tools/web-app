@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+skip_before_filter :authorize, only: [:new, :create]
+
+  def new
+  end
+
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
@@ -7,6 +12,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to login_path
   end
 end
