@@ -21,6 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass-official": "latest"
+    "bootstrap-sass-official": "latest",
+    "startbootstrap-sb-admin-2": "latest"
  }
 }
