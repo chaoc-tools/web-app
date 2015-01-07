@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :proxy_votes_collected
+
   resources :buildings
 
   resources :annual_meetings

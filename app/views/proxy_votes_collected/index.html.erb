@@ -1,0 +1,31 @@
+<h1>Listing proxy_votes_collected</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Annual meeting</th>
+      <th>Building</th>
+      <th>User</th>
+      <th>Votes collected</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proxy_votes_collected.each do |proxy_votes_collected| %>
+      <tr>
+        <td><%= proxy_votes_collected.annual_meeting_id %></td>
+        <td><%= proxy_votes_collected.building_id %></td>
+        <td><%= proxy_votes_collected.user_id %></td>
+        <td><%= proxy_votes_collected.votes_collected %></td>
+        <td><%= link_to 'Show', proxy_votes_collected %></td>
+        <td><%= link_to 'Edit', edit_proxy_votes_collected_path(proxy_votes_collected) %></td>
+        <td><%= link_to 'Destroy', proxy_votes_collected, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Proxy votes collected', new_proxy_votes_collected_path %>

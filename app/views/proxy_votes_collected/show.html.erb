@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Annual meeting:</strong>
+  <%= @proxy_votes_collected.annual_meeting_id %>
+</p>
+
+<p>
+  <strong>Building:</strong>
+  <%= @proxy_votes_collected.building_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @proxy_votes_collected.user_id %>
+</p>
+
+<p>
+  <strong>Votes collected:</strong>
+  <%= @proxy_votes_collected.votes_collected %>
+</p>
+
+<%= link_to 'Edit', edit_proxy_votes_collected_path(@proxy_votes_collected) %> |
+<%= link_to 'Back', proxy_votes_collected_index_path %>
