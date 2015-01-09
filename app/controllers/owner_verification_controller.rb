@@ -8,10 +8,10 @@ class OwnerVerificationController < ApplicationController
   def show
   end
 
-#   def run_verification
+def run_verification
 #     require 'mechanize'
 #     agent = Mechanize.new
-#     page = agent.get('https://a836-acris.nyc.gov/DS/DocumentSearch/PartyName')
+#     page = agent.get('https://a836-acris.nyc.gov/DS/DocumentSearch/PartyNameResult')
 #     form = page.forms.first
 #     form.edt_last = 'RAMSAY'
 #     form.edt_first = 'JOHAN'
@@ -21,12 +21,26 @@ class OwnerVerificationController < ApplicationController
 #     agent2 = Mechanize.new
 #     page = agent2.get('https://a836-acris.nyc.gov/DS/DocumentSearch/PartyNameResult')
 
-# b.text_field(:name => 'edt_last').set 'RAMSAY'
-# b.text_field(:name => 'edt_first').set 'JOHAN'
-# b.button(:value => 'Search').click
+require 'watir-webdriver'
+require 'headless'
+headless = Headless.new
+b = Watir::Browser.start 'https://a836-acris.nyc.gov/DS/DocumentSearch/PartyName'
+b.text_field(:name => 'edt_last').set 'RAMSAY'
+b.text_field(:name => 'edt_first').set 'JOHAN'
+b.button(:value => 'Search').click
+# may need to wait - see http://watirwebdriver.com/waiting/
+Watir::Wait.until { b.text.include? 'Search Results By Party Name' }
+# or use next_page.loaded?  - see https://github.com/watir/watir-webdriver/wiki/Page-Objects
+det_buttons = b.buttons(:value => 'DET')
+det_buttons.last.click
+# b.button(:value => 'DET').click  #there may be many, need to get the first one
+Watir::Wait.until { b.text.include? 'Detailed Document Information' }
+parcels_table = Nokogiri::HTML.parse(b.html)
+# strip and look for text between <td> and </td> tags that match a join on buildings to create street addresses, eg "345 CLINTON AVE"
+b.close
+headless.destroy
     
-    
-#   end
+end
 end
 
 # https://data.cityofnewyork.us/resource/636b-3b5g.json
