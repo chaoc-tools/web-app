@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 ##ADDED GEMS
+gem 'mechanize'
+gem 'watir-webdriver'
+gem 'headless'
 gem 'bower-rails'
 gem 'annotate', '~> 2.6.5', group: :development
 # gem 'foundation-rails'
@@ -34,6 +37,7 @@ gem 'autoprefixer-rails'
 gem "figaro"
 gem 'rails_12factor', group: :production
 gem "omniauth-google-oauth2", "~> 0.2.1"
+# gem 'soda-ruby', :require => 'soda'
 ruby "2.1.3"
 
 
