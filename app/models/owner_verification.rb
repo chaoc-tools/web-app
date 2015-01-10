@@ -1,4 +1,4 @@
-# == Schema Information
+p# == Schema Information
 #
 # Table name: owner_verifications
 #
@@ -12,4 +12,14 @@
 #
 
 class OwnerVerification < ActiveRecord::Base
+
+  SEARCH_FORM = "https://a836-acris.nyc.gov/DS/DocumentSearch/PartyName"
+
+  VALID_PROPERTY_ADDRESSES = [
+    "325 CLINTON AVE",
+    "345 CLINTON AVE",
+    "355 CLINTON AVE",
+    "361 CLINTON AVE",
+    "365 CLINTON AVE"
+  ]
 end

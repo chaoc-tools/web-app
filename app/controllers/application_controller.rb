@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def owner_verification
-     redirect_to owner_verification_new_path unless current_user.property_owner
+   redirect_to new_owner_verification_path unless current_user.property_owner
   end
 
 

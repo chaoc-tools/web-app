@@ -37,7 +37,7 @@ gem 'autoprefixer-rails'
 gem "figaro"
 gem 'rails_12factor', group: :production
 gem "omniauth-google-oauth2", "~> 0.2.1"
-# gem 'soda-ruby', :require => 'soda'
+gem 'pry-rails', :group => :development
 ruby "2.1.3"
 
 
