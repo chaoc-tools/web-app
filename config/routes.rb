@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'owner_verification/new'
-  get 'owner_verification/show'
+  # get 'owner_verifications/new'
+  # # get 'owner_verifications/show'
 
   # get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # get 'sessions/create'
   # get 'sessions/destroy'
 
+  resources :owner_verifications
   resources :proxy_votes_collected
   resources :buildings
   resources :annual_meetings

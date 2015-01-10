@@ -1,0 +1,34 @@
+<h1>Welcome to the CHAOC Tools App</h1>
+<p>Before we can provide access to CHAOC data, we need to confirm that you are a property owner.</p>
+<p>Please enter the info below <i>exactly</i> as it appears in your property records.</p>
+<%= form_for(@owner_verification) do |f| %>
+  <% if @owner_verification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@owner_verification.errors.count, "error") %> prohibited this Owner Verification from being processed:</h2>
+
+      <ul>
+      <% @owner_verification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="field">
+      <%= f.label :ch_first %><br>
+      <%= f.text_field :ch_first_name %>
+    </div>
+      <div class="field">
+      <%= f.label :ch_mi %><br>
+      <%= f.text_field :ch_mi %>
+    </div>
+      <div class="field">
+      <%= f.label :ch_last_name %><br>
+      <%= f.text_field :ch_last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :ch_building_number %><br>
+      <%= f.number_field :ch_building_number %>
+    </div>
+    <%= f.submit "Submit Info" %>
+  </div>
+<% end %>
