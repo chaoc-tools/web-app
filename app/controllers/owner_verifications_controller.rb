@@ -13,6 +13,7 @@ class OwnerVerificationsController < ApplicationController
   require 'watir-webdriver'
   require 'headless'
   headless = Headless.new
+  headless.start
   browser = Watir::Browser.start OwnerVerification::SEARCH_FORM
   browser.text_field(:name => 'edt_last').when_present.set params[:owner_verification][:ch_last_name]
   browser.text_field(:name => 'edt_first').when_present.set params[:owner_verification][:ch_first_name]
@@ -25,10 +26,12 @@ class OwnerVerificationsController < ApplicationController
   detail_buttons = browser.buttons(:value => 'DET')
   detail_buttons.first.click
   page_text = browser.text
+  browser.close
+  headless.destroy
   valid_address?(page_text)
       
     if current_user.property_owner
-      redirect_to @owner_verification, notice: 'User was verified as an owner.'
+      redirect_to root_path, notice: 'User was verified as an owner.'
     else
       render :new, notice: 'Sorry, this does not seem to be a property owner'
     end
@@ -39,9 +42,11 @@ class OwnerVerificationsController < ApplicationController
 
   def valid_address?(text)
     OwnerVerification::VALID_PROPERTY_ADDRESSES.each do |address|
-      current_user.property_owner = true if text.include? address
+      if text.include? address
+        current_user.property_owner = true
+        current_user.save
+      end
     end
-    false
   end
 
 end
