@@ -11,10 +11,11 @@ class OwnerVerificationsController < ApplicationController
 
   def create
   require 'watir-webdriver'
-  require 'headless'
-  headless = Headless.new
-  headless.start
-  browser = Watir::Browser.start OwnerVerification::SEARCH_FORM
+  # require 'headless'
+  # headless = Headless.new
+  # headless.start
+  browser = Watir::Browser.new :phantomjs
+  browser.goto OwnerVerification::SEARCH_FORM
   browser.text_field(:name => 'edt_last').when_present.set params[:owner_verification][:ch_last_name]
   browser.text_field(:name => 'edt_first').when_present.set params[:owner_verification][:ch_first_name]
   # binding.pry
@@ -27,7 +28,7 @@ class OwnerVerificationsController < ApplicationController
   detail_buttons.first.click
   page_text = browser.text
   browser.close
-  headless.destroy
+  # headless.destroy
   valid_address?(page_text)
       
     if current_user.property_owner
