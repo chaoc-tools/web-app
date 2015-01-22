@@ -1,2 +1,11 @@
-<h1>OwnerVerification#show</h1>
-<p>Find me in app/views/owner_verification/show.html.erb</p>
+<div class="page-header"><h1>Owner Verification Check</h1></div>
+
+<p>Here is the info you entered:</p>
+<ul class="list-unstyled">
+  <li>First Name: <%= @owner_verification.ch_first_name %></li>
+  <% if @owner_verification.ch_mi %> 
+  <li>Middle Initial Name: <%= @owner_verification.ch_first_name %></li>
+  <% end %>
+  <li>Last Name: <%= @owner_verification.ch_last_name %></li>
+  <li>Building Number: <%= @owner_verification.ch_building_number %></li>
+</ul>

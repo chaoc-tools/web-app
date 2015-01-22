@@ -51,6 +51,7 @@ class OwnerVerificationsController < ApplicationController
   end
 
   def show
+    @owner_verification = OwnerVerification.find(params[:id])
   end
 
   def valid_address?(text)
