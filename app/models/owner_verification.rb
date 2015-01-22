@@ -12,6 +12,12 @@ p# == Schema Information
 #
 
 class OwnerVerification < ActiveRecord::Base
+  validates :ch_first_name, :presence => true
+  # validates :ch_first_name, , :presence => true
+  
+  # :length => { :in => 0..255 }, :allow_nil => false
+  # # validates_length_of :ch_bulding_number, :minimum => 3, :maximum => 3
+  # validates :ch_bulding_number, :numericality => {:only_integer => true}, :presence => true
 
   SEARCH_FORM = "https://a836-acris.nyc.gov/DS/DocumentSearch/PartyName"
 

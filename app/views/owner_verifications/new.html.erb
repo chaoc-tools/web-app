@@ -14,21 +14,21 @@
     </div>
   <% end %>
     <div class="field">
-      <%= f.label :ch_first %><br>
+      <%= f.label :ch_first, "First Name" %><br>
       <%= f.text_field :ch_first_name %>
     </div>
       <div class="field">
-      <%= f.label :ch_mi %><br>
+      <%= f.label :ch_mi, "Middle Initial (Optional)" %><br>
       <%= f.text_field :ch_mi %>
     </div>
       <div class="field">
-      <%= f.label :ch_last_name %><br>
+      <%= f.label :ch_last_name, "Last Name" %><br>
       <%= f.text_field :ch_last_name %>
     </div>
     <div class="field">
-      <%= f.label :ch_building_number %><br>
+      <%= f.label :ch_building_number, "Building Number" %><br>
       <%= f.number_field :ch_building_number %>
     </div>
-    <%= f.submit "Submit Info" %>
+    <%= f.submit "Submit Property Owner Info" %>
   </div>
 <% end %>
