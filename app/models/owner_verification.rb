@@ -12,18 +12,23 @@ p# == Schema Information
 #
 
 class OwnerVerification < ActiveRecord::Base
-  validates :ch_first_name, :presence => true
-  validates :ch_last_name, :presence => true
-  validates :ch_building_number, :presence => true, :numericality => {:only_integer => true}, :length => {:minimum => 3, :maximum => 3}
-
-
-  SEARCH_FORM = "https://a836-acris.nyc.gov/DS/DocumentSearch/PartyName"
-
-  VALID_PROPERTY_ADDRESSES = [
+  VALID_BUILDING_NUMBERS = [195,201,325,345,361,365]
+   VALID_PROPERTY_ADDRESSES = [
     "325 CLINTON AVE",
     "345 CLINTON AVE",
     "355 CLINTON AVE",
     "361 CLINTON AVE",
     "365 CLINTON AVE"
   ]
+
+  validates :ch_first_name, :presence => true
+  validates :ch_last_name, :presence => true
+  validates :ch_building_number, :presence => true, :numericality => {:only_integer => true}, :length => {:is => 3}, :inclusion => {:in => VALID_BUILDING_NUMBERS }
+
+
+  SEARCH_FORM = "https://a836-acris.nyc.gov/DS/DocumentSearch/PartyName"
+
+  
+
+ 
 end
