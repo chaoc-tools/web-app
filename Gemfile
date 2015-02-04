@@ -38,6 +38,8 @@ gem "figaro"
 gem 'rails_12factor', group: :production
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'pry-rails', :group => :development
+gem 'delayed_job_active_record'
+
 ruby "2.1.3"
 
 
