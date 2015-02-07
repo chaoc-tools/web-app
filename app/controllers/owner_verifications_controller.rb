@@ -14,19 +14,22 @@ class OwnerVerificationsController < ApplicationController
 
     respond_to do |format|
       if @owner_verification.save
-        # self.run_verification
-         format.html { redirect_to @owner_verification, notice: 'Owner verification info was saved.' }
 
-        # if current_user.property_owner
-        #   redirect_to root_path, notice: 'User was verified as an owner.'
-        # else
-        #   render :new, notice: 'Sorry, this does not seem to be a property owner'
-        # end
+        @owner_verification.run_verification
+
+        # format.html { redirect_to @owner_verification, notice: 'Owner verification info was saved.' }
+
+        if current_user.property_owner
+          format.html { redirect_to root_path, notice: 'User was verified as an owner.' }
+          # redirect_to root_path, notice: 'User was verified as an owner.'
+        else
+          render :new, notice: 'Sorry, this does not seem to be a property owner'
+        end
         # format.html { redirect_to @owner_verification, notice: 'Owner verification info was saved.' }
         # # format.json { render :show, status: :created, location: @owner_verification }
       else
         format.html { render :new }
-        # format.json { render json: @annual_meeting.errors, status: :unprocessable_entity }
+        format.json { render json: @annual_meeting.errors, status: :unprocessable_entity }
       end
     end
   end
