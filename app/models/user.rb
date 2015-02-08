@@ -15,9 +15,13 @@
 #  chaoc_mi         :string(255)
 #  chaoc_last       :string(255)
 #  property_owner   :boolean
+#  password_digest  :string(255)
+#  admin            :boolean
 #
 
 class User < ActiveRecord::Base
+ # has_secure_password
+  # validates_uniqueness_of :email
 
   def self.from_omniauth(auth)
 

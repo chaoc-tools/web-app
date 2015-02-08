@@ -39,12 +39,13 @@ gem 'rails_12factor', group: :production
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'pry-rails', :group => :development
 gem 'delayed_job_active_record'
+gem 'bcrypt', '~> 3.1.7'
+
 
 ruby "2.1.3"
 
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
