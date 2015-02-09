@@ -1,0 +1,12 @@
+<h1>User Info</h1>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Admin:</strong>
+  <%= yesno_boolean(@user.admin) %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'All Users', users_path %>

@@ -35,5 +35,13 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def property_owner_yn
+    property_owner ? 'Yes' : 'No'
+  end
+
+  def admin_yn
+    admin ? 'Yes' : 'No'
+  end
   
 end

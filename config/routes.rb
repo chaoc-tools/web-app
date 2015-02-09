@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   # get 'sessions/create'
   # get 'sessions/destroy'
 
+  resources :users
+
   resources :owner_verifications
   resources :proxy_votes_collected
   resources :buildings
