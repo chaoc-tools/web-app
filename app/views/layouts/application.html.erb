@@ -7,7 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Chaoc Tools" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body role="document" class="fixed-header-top-margin">
@@ -22,17 +22,11 @@
           </button>
           <a class="navbar-brand" href="#">Chaoc Tools</a>
         </div>
-        <%#= render 'partials/navbar' if current_user %>
+        <%= render 'partials/navbar' if current_user %>
       </div>
     </nav>
 
   <% if notice %><p id="notice"><%= notice %></p><% end %>
-  <div>
-      <% if current_user %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
-      <% end %>
-    </div>
     <div class="container">
        <%= yield %>
     </div>
