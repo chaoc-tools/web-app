@@ -11,21 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form_group">
     <%= f.label :email %><br>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, :class => "form-control" %>
   </div>
-  <div class="field">
+  <div class="checkbox">
     <%= f.label :admin do %>
      <%= f.check_box :admin %> Admin
     <% end %>
   </div>
-  <div class="field">
+  <div class="checkbox">
     <%= f.label :property_owner do %>
      <%= f.check_box :property_owner %> Property Owner
     <% end %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form_group">
+    <%= f.submit :class => "btn btn-default"  %>
   </div>
 <% end %>
