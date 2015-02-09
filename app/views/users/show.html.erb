@@ -4,6 +4,10 @@
   <%= @user.email %>
 </p>
 <p>
+  <strong>Property Owner:</strong>
+  <%= yesno_boolean(@user.property_owner) %>
+</p>
+<p>
   <strong>Admin:</strong>
   <%= yesno_boolean(@user.admin) %>
 </p>

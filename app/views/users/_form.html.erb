@@ -13,19 +13,15 @@
 
   <div class="form_group">
     <%= f.label :email %><br>
-    <%= f.email_field :email, :class => "form-control" %>
+    <%= f.email_field :email, :class => "form-control", :placeholder => "your@email.com" %>
   </div>
   <div class="checkbox">
-    <%= f.label :admin do %>
-     <%= f.check_box :admin %> Admin
-    <% end %>
+    <%= f.label :admin do %><%= f.check_box :admin %> Admin<% end %>
   </div>
   <div class="checkbox">
-    <%= f.label :property_owner do %>
-     <%= f.check_box :property_owner %> Property Owner
-    <% end %>
+    <%= f.label :property_owner do %><%= f.check_box :property_owner %> Property Owner<% end %>
   </div>
   <div class="actions form_group">
-    <%= f.submit :class => "btn btn-default"  %>
+    <%= f.submit :class => "btn btn-default" %>
   </div>
 <% end %>

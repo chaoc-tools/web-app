@@ -27,9 +27,10 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
      respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'Annual meeting was successfully updated.' }
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
