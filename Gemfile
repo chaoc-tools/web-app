@@ -43,6 +43,10 @@ gem 'pry-rails', :group => :development
 gem 'delayed_job_active_record'
 gem 'bcrypt', '~> 3.1.7'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
 
 ruby "2.1.3"
 
